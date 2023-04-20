@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5868789529210172451}
   - component: {fileID: 349675312518535374}
+  - component: {fileID: 491811521}
   m_Layer: 0
   m_Name: WhiskeyBottle
   m_TagString: Untagged
@@ -48,7 +49,21 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 3
+--- !u!64 &491811521
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2277151491664026138}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 0}
 --- !u!1001 &4111091146308561607
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -138,6 +153,25 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e637033956098d549b075445a859f0a5, type: 3}
+--- !u!1 &3876735390835840918 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: e637033956098d549b075445a859f0a5,
+    type: 3}
+  m_PrefabInstance: {fileID: 4111091146308561607}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &6266771650116045572
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3876735390835840918}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.046342377, y: 0.05762426, z: 0.10944426}
+  m_Center: {x: 0, y: 0, z: 0.05472213}
 --- !u!4 &4505639087361019180 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: e637033956098d549b075445a859f0a5,
