@@ -38,8 +38,7 @@ public class PlantingSocket : MonoBehaviour
             other.gameObject.GetComponentInParent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
             //freeze position and rotation of the socket
             GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
+            //reset the dirt
         }
     }
-
-
 }

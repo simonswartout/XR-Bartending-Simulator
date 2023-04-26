@@ -12,7 +12,7 @@ public class DigDirtTrigger : MonoBehaviour
     [SerializeField] bool planted = false;
 
     private void Start() {
-        originalTransform = transform;
+        
     }
 
     private void OnTriggerEnter(Collider other) {
@@ -29,10 +29,5 @@ public class DigDirtTrigger : MonoBehaviour
                 dugToPlantingDepth = true;
             }
         }
-    }
-
-    public void ResetDirt()
-    {
-        transform.localScale = originalTransform.localScale;
     }
 }

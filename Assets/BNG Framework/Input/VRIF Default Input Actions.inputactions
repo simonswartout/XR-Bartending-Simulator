@@ -620,6 +620,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
+                },
+                {
+                    "name": "IncrementDay",
+                    "type": "Button",
+                    "id": "2f90eacb-d156-41cc-9b54-27b4431ce3fa",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Press",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -864,6 +873,17 @@
                     "action": "Turn",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "b2ae6c17-1fcc-438b-81c7-deeb472cb83f",
+                    "path": "<XRController>{RightHand}/primaryButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "IncrementDay",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         },
