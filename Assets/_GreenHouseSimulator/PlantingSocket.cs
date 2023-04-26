@@ -8,17 +8,38 @@ public class PlantingSocket : MonoBehaviour
     [SerializeField] DigDirtTrigger digDirtTrigger;
     [SerializeField] Transform plantingPosition;
 
-    private void Start() {
-        GetComponent<Renderer>().material = null;
+    //I need this script to be a custom socket interactor 
+    //I need to be able to grab the plant and move it around
+    //I need to be able to drop the plant into the socket
+    //I need to be able to pick the plant back up
+    //I need to be able to reset the dirt
+    //I need to be able to reset the plant
+    //I need to be able to reset the socket
+
+    void Start()
+    {
+        digDirtTrigger = GetComponentInParent<DigDirtTrigger>();
+        plantingPosition = GetComponent<Transform>();
     }
-    private void OnTriggerEnter(Collider other) {
+
+    void OnTriggerEnter(Collider other)
+    {
         if(other.gameObject.tag == "Plant")
         {
-            Debug.Log("Plant entered planting socket");
-            other.gameObject.transform.position = plantingPosition.position;
-            other.gameObject.transform.rotation = plantingPosition.rotation;
-            other.gameObject.GetComponent<Rigidbody>().isKinematic = true;
-            digDirtTrigger.ResetDirt();
+            if(!digDirtTrigger.dugToPlantingDepth)
+            {
+                Destroy(other.gameObject);  
+                return;
+            }
+
+            other.transform.position = plantingPosition.position;
+            other.transform.rotation = plantingPosition.rotation;
+            //freeze position and rotation of the plant 
+            other.gameObject.GetComponentInParent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
+            //freeze position and rotation of the socket
+            GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
         }
     }
+
+
 }

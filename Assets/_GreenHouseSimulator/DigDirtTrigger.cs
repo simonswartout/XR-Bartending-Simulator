@@ -8,7 +8,7 @@ public class DigDirtTrigger : MonoBehaviour
     Transform originalTransform;
 
     [SerializeField] float plantingDepth = 0.3f;
-    [SerializeField] bool dugToPlantingDepth = false;
+    public bool dugToPlantingDepth = false;
     [SerializeField] bool planted = false;
 
     private void Start() {
