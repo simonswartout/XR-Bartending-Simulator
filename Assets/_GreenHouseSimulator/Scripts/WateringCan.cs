@@ -10,7 +10,7 @@ public class WateringCan : MonoBehaviour
     private float lastRotation = 0f;
 
     void Update() {
-        if(InputBridge.Instance.RightTrigger > 0.5f) {
+        if(InputBridge.Instance.RightTrigger == 1f) {
             waterParticles.Play();
         }
         else {
