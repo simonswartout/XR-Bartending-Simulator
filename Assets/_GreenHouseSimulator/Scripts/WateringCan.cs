@@ -1,15 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using BNG;
 
 public class WateringCan : MonoBehaviour
 {
-    [SerializeField] PlantGrowth plantGrowth;
     [SerializeField] ParticleSystem waterParticles;
 
-    void FixedUpdate() {
-        if(transform.eulerAngles.z > 0 && transform.eulerAngles.z < 90) {
-            plantGrowth.WaterPlant();
+    private float lastRotation = 0f;
+
+    void Update() {
+        if(InputBridge.Instance.RightTrigger > 0.5f) {
             waterParticles.Play();
         }
         else {

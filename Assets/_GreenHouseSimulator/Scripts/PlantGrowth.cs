@@ -21,6 +21,14 @@ public class PlantGrowth : MonoBehaviour
 
     public LifeStage lifeStage;
     public WaterStatus waterStatus;
+    public DayTracker dayTracker;
+
+    //get the child gameobjects of the plant that will serve as the different growth stages
+    [SerializeField] GameObject seedling;
+    [SerializeField] GameObject growing;
+    [SerializeField] GameObject mature;
+    [SerializeField] GameObject flower;
+
 
     [SerializeField] int timesWatered = 0;
     [SerializeField] int daysWithoutWater = 0;
@@ -30,6 +38,8 @@ public class PlantGrowth : MonoBehaviour
     void Start() {
         SetLifeStage(LifeStage.Seedling);
         SetWaterStatus(WaterStatus.Dry);
+
+        dayTracker = GameObject.Find("GameTimeManager").GetComponent<DayTracker>();
     }
 
     public void SetLifeStage(LifeStage newLifeStage) {
@@ -42,12 +52,13 @@ public class PlantGrowth : MonoBehaviour
 
     public void WaterPlant() {
 
+        Debug.Log("WateringPlant");
+
         if(waterStatus == WaterStatus.Watered) return;
 
         if(lifeStage == LifeStage.Dead) return;
         
         timesWatered++;
-        daysWithoutWater = 0;
         SetWaterStatus(WaterStatus.Watered);
         
 
@@ -63,27 +74,50 @@ public class PlantGrowth : MonoBehaviour
             SetLifeStage(LifeStage.Flower);
         }
         
-        if(timesWatered >= 6) {
-            SetLifeStage(LifeStage.Fruit);
-        }
-    }
-
-    public void IncrementDaysWithoutWater() {
-        daysWithoutWater++;
-        daysToFruit ++;
-        
-        if(daysWithoutWater >= 3) {
-            SetLifeStage(LifeStage.Withered);
-        }
-
-        else if(daysWithoutWater >= 5) {
-            SetLifeStage(LifeStage.Dead);
-        }
     }
 
     public void IncrementDaysSincePlanting() {
-        if(waterStatus == WaterStatus.Dry) IncrementDaysWithoutWater();
-        daysSincePlanting++;
-        SetWaterStatus(WaterStatus.Dry);
+        if(daysSincePlanting != dayTracker.globalDayTracker) {
+            daysSincePlanting++;
+            SetWaterStatus(WaterStatus.Dry);
+        }
     }
+
+    void Update()
+    {
+        IncrementDaysSincePlanting();
+
+        if(lifeStage == LifeStage.Seedling) {
+            seedling.SetActive(true);
+            growing.SetActive(false);
+            mature.SetActive(false);
+            flower.SetActive(false);
+        }
+        else if(lifeStage == LifeStage.Growing) {
+            seedling.SetActive(false);
+            growing.SetActive(true);
+            mature.SetActive(false);
+            flower.SetActive(false);
+        }
+        else if(lifeStage == LifeStage.Mature) {
+            seedling.SetActive(false);
+            growing.SetActive(false);
+            mature.SetActive(true);
+            flower.SetActive(false);
+        }
+        else if(lifeStage == LifeStage.Flower) {
+            seedling.SetActive(false);
+            growing.SetActive(false);
+            mature.SetActive(false);
+            flower.SetActive(true);
+        }
+    }
+
+    // private void OnTriggerEnter(Collider other) {
+    //     if(other.gameObject.tag == "Water") {
+    //         WaterPlant();
+    //     }
+    // }
 }
+
+

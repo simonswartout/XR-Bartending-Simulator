@@ -6,11 +6,12 @@ TagManager:
   tags:
   - Trowel
   - Plant
+  - Water
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - WateringCan
   - Water
   - UI
   - 

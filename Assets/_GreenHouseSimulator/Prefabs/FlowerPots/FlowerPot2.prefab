@@ -61,6 +61,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   digDirtTrigger: {fileID: 4216072357630568741}
   plantingPosition: {fileID: 5108125985628992295}
+  plantPrefab: {fileID: 945387628080375404, guid: 757fbc168fe53d14eb81b0c01d05e115,
+    type: 3}
 --- !u!54 &198242598796993043
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1256,6 +1258,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   digDirtTrigger: {fileID: 4216072357630568741}
   plantingPosition: {fileID: 5108125985628992295}
+  plantPrefab: {fileID: 945387628080375404, guid: 757fbc168fe53d14eb81b0c01d05e115,
+    type: 3}
 --- !u!54 &8272765815259808053
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1333,6 +1337,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   digDirtTrigger: {fileID: 4216072357630568741}
   plantingPosition: {fileID: 5108125985628992295}
+  plantPrefab: {fileID: 945387628080375404, guid: 757fbc168fe53d14eb81b0c01d05e115,
+    type: 3}
 --- !u!54 &4262471546690086509
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2130,6 +2136,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   digDirtTrigger: {fileID: 4216072357630568741}
   plantingPosition: {fileID: 5108125985628992295}
+  plantPrefab: {fileID: 945387628080375404, guid: 757fbc168fe53d14eb81b0c01d05e115,
+    type: 3}
 --- !u!54 &4974347538077612467
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2207,6 +2215,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   digDirtTrigger: {fileID: 4216072357630568741}
   plantingPosition: {fileID: 5108125985628992295}
+  plantPrefab: {fileID: 945387628080375404, guid: 757fbc168fe53d14eb81b0c01d05e115,
+    type: 3}
 --- !u!54 &962293120055057219
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2305,6 +2315,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: Dirt01
       objectReference: {fileID: 0}
+    - target: {fileID: 8755195698395302071, guid: a19a4cc0d1eb90848bd8958b754c8212,
+        type: 3}
+      propertyPath: plantPrefab
+      value: 
+      objectReference: {fileID: 945387628080375404, guid: 757fbc168fe53d14eb81b0c01d05e115,
+        type: 3}
     - target: {fileID: 8755195698395302071, guid: a19a4cc0d1eb90848bd8958b754c8212,
         type: 3}
       propertyPath: plantingPosition
