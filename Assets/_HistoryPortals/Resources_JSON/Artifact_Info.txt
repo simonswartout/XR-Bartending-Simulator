@@ -1,0 +1,25 @@
+{
+    "artifact": [
+        {
+            "name": "Bowl",
+            "date": "500-700 CE",
+            "location": "Iran",
+            "material": "Silver",
+            "description": "Every good Zoroastrian was supposed to spend one-third of his day farming; one-third philosophizing; and one-third eating, resting, and at pleasure. The abundance of Sasanian luxury goods is evidence of the importance accorded the last third of the day."
+        },
+        {
+            "name": "Bowl",
+            "date": "500-700 CE",
+            "location": "Iran",
+            "material": "Silver",
+            "description": "Every good Zoroastrian was supposed to spend one-third of his day farming; one-third philosophizing; and one-third eating, resting, and at pleasure. The abundance of Sasanian luxury goods is evidence of the importance accorded the last third of the day."
+        },
+        {
+            "name": "Bowl",
+            "date": "500-700 CE",
+            "location": "Iran",
+            "material": "Silver",
+            "description": "Every good Zoroastrian was supposed to spend one-third of his day farming; one-third philosophizing; and one-third eating, resting, and at pleasure. The abundance of Sasanian luxury goods is evidence of the importance accorded the last third of the day."
+        }
+    ]
+}

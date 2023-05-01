@@ -12,6 +12,8 @@ public class SnapToHold : MonoBehaviour
     [SerializeField] Grabbable grabbable;
     [SerializeField] Transform startingTransform;   
     [SerializeField] CanvasController canvasController;
+    [SerializeField] JSONReader jsonReader;
+    ArtifactIdentifier artifactIdentifier;
     Rigidbody rb;
 
     void Start()
@@ -19,9 +21,8 @@ public class SnapToHold : MonoBehaviour
         grabbable = GetComponent<Grabbable>();
         startingTransform = GetComponent<Transform>();
         rb = GetComponent<Rigidbody>();
-
+        artifactIdentifier = GetComponentInParent<ArtifactIdentifier>();
     }
-
     void FreezePosition()
     {
         GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezePositionZ;
@@ -53,9 +54,9 @@ public class SnapToHold : MonoBehaviour
         {
             isReleased = false;
             isFrozen = false;
+            artifactIdentifier.activeArtifact = false;
             UnFreezePosition();
-            canvasController.HideCanvas();
-            
+            canvasController.HideCanvas(); 
         }
         
         if(rb.velocity.magnitude > 1f && !grabbable.BeingHeld)
@@ -68,6 +69,9 @@ public class SnapToHold : MonoBehaviour
         {
             FreezePosition();
             isFrozen = true;
+            artifactIdentifier.activeArtifact = true;
+            jsonReader.GetActiveArtifact();
+            
             
         }
 
