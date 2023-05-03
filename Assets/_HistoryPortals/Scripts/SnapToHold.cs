@@ -18,6 +18,7 @@ public class SnapToHold : MonoBehaviour
 
     void Start()
     {
+        isReleased = false;
         grabbable = GetComponent<Grabbable>();
         startingTransform = GetComponent<Transform>();
         rb = GetComponent<Rigidbody>();
@@ -59,10 +60,9 @@ public class SnapToHold : MonoBehaviour
             canvasController.HideCanvas(); 
         }
         
-        if(rb.velocity.magnitude > 1f && !grabbable.BeingHeld)
+        if(rb.velocity.magnitude > 2f && !grabbable.BeingHeld)
         {
             isReleased = true;
-            
         }
 
         if(isReleased && !isFrozen)

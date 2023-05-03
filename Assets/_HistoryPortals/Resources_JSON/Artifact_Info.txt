@@ -8,11 +8,11 @@
             "description": "Every good Zoroastrian was supposed to spend one-third of his day farming; one-third philosophizing; and one-third eating, resting, and at pleasure. The abundance of Sasanian luxury goods is evidence of the importance accorded the last third of the day."
         },
         {
-            "name": "Bowl",
-            "date": "500-700 CE",
-            "location": "Iran",
-            "material": "Silver",
-            "description": "Every good Zoroastrian was supposed to spend one-third of his day farming; one-third philosophizing; and one-third eating, resting, and at pleasure. The abundance of Sasanian luxury goods is evidence of the importance accorded the last third of the day."
+            "name": "Terracotta Kylix",
+            "date": "c. 470 BCE",
+            "location": "Greece, Attica",
+            "material": "Terracotta; red-figure",
+            "description": "Here, two women, nude except for the fillets binding their hair, put aside their carefully rolled-up garments. The exterior shows women and youths in conversation. It is difficult, and perhaps unneccessary, to characterize the situation precisely. Douris liked to depict such encounters"
         },
         {
             "name": "Bowl",

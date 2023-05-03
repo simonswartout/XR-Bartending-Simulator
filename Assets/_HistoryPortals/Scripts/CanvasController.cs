@@ -17,6 +17,11 @@ public class CanvasController : MonoBehaviour
     
     public bool isFrozen = false;
 
+    void Start()
+    {
+        HideCanvas();
+    }
+
     public void ShowCanvas()
     {
         gameObject.SetActive(true);
