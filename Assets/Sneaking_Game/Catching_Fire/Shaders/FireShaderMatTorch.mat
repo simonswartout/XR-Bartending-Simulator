@@ -1,0 +1,65 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-494535447651289784
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0353a89b1f911e48b9e16bdc9f2e058, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 5
+--- !u!21 &2100000
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: FireShaderMatTorch
+  m_Shader: {fileID: -6465566751694194690, guid: 58c1611277436ec40bca0c160e9f840e,
+    type: 3}
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - MainTexture:
+        m_Texture: {fileID: 2800000, guid: 6600bf6c140ba40409791e8360c69c14, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_Lightmaps:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_LightmapsInd:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_ShadowMasks:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - Vector1_07c3a900023648a69ba5a32a306e3453: 3.58
+    - Vector1_8758e8ecf9c64ea7a189c4fb9d792625: 0.1
+    - Vector1_9a4eaa73053f457b9b7fdc0733626c6e: 0.04
+    - Vector1_a446eb0ea2664a7dbf863c09720e335d: 4.04
+    - _QueueControl: 0
+    - _QueueOffset: 0
+    m_Colors:
+    - Color1: {r: 6.414431, g: 0.6612489, b: 0, a: 0}
+    - Vector2_7890248ba325458cba13f4b53b07c34a: {r: 0, g: 1.31, b: 0, a: 0}
+    - Vector2_b0d40846f94e4d72a3b5914221e9edf2: {r: -0.1, g: -0.5, b: 0, a: 0}
+  m_BuildTextureStacks: []
