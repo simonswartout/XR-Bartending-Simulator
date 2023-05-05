@@ -30,6 +30,7 @@ public class CanvasController : MonoBehaviour
     public void HideCanvas()
     {
         gameObject.SetActive(false);
+        isFrozen = false;
     }
 
     public void FreezeCanvas()

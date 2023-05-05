@@ -29,9 +29,10 @@ public class SnapToHold : MonoBehaviour
         GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezePositionZ;
     }
     
-    void UnFreezePosition()
+    public void UnFreezePosition()
     {
         GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
+        transform.position = startingTransform.position;
     }
 
     void FreezeRotationZ()
@@ -69,6 +70,7 @@ public class SnapToHold : MonoBehaviour
         {
             FreezePosition();
             isFrozen = true;
+            isReleased = false;
             artifactIdentifier.activeArtifact = true;
             jsonReader.GetActiveArtifact();
             
