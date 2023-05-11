@@ -20,6 +20,7 @@ public class GridSnapTrigger : MonoBehaviour
         {
             if(tilePiece.isSnapped)
             {
+                meshRenderer.enabled = false;
                 return;
             }
 
@@ -34,8 +35,26 @@ public class GridSnapTrigger : MonoBehaviour
                 var RefSize = GetComponent<MeshFilter>().sharedMesh.bounds.size;
                 var tileSize = tilePiece.GetComponent<MeshFilter>().sharedMesh.bounds.size;
                 var newScale = new Vector3(RefSize.x / tileSize.x, RefSize.y / tileSize.y, RefSize.z / tileSize.z);
-
                 tilePiece.transform.localScale = newScale;
+                //scale all children of the tile piece to the same scale as the tile piece
+                foreach(Transform child in tilePiece.GetComponentsInChildren<Transform>())
+                {
+                    if(child.gameObject == tilePiece.gameObject)
+                    {
+                        continue;
+                    }
+                    if(child.gameObject.GetComponent<MeshFilter>() == null)
+                    {
+                        continue;
+                    }
+                    
+                    //scale the child to the same factor as the tile piece
+                    child.localScale = new Vector3(child.localScale.x * newScale.x * 3, child.localScale.y * newScale.y * 5, child.localScale.z * newScale.z * 3);
+
+                    
+                }
+
+                
 
                 tilePiece.SetSnapped(true);
             }
