@@ -29,7 +29,7 @@ public class TilePiece : MonoBehaviour
     {
         if(isSnapped)
         {
-            rb.isKinematic = false;
+            rb.isKinematic = true;
             //ignore collisions with other tile pieces to prevent snapping to the wrong piece 
             //when the player is moving the tile piece
         }

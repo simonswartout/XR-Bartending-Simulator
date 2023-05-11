@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,56 +7,47 @@ public class PlayerMovement : MonoBehaviour
 {
 
     [SerializeField] Transform movementHandle;
-    [SerializeField] GameObject Handle;
     [SerializeField] PlayerHandle playerHandle;
     [SerializeField] float movementSpeed = 5f;
     [SerializeField] Rigidbody rb;
+    private bool jumpCooldown = false;
 
 
     // Update is called once per frame
     void Update()
     {
-
+        MoveWithHandle();
     }
 
     void MoveWithHandle()
     {
+        if(jumpCooldown)
+        {
+            return;
+        }
+        Vector3 dir = movementHandle.position - transform.position;
 
+        if(dir.y > .5f)
+        {
+            dir.x = 0;
+            dir.z = 0;
+            jumpCooldown = true;
+            StartCoroutine(Jump());
+        }
+        else
+        {
+            dir.y = 0;
+
+        }
+
+        rb.velocity = dir * movementSpeed;
+        rb.rotation = Quaternion.LookRotation(dir);
     }
 
-    
-    void Jump()
+    private IEnumerator Jump()
     {
-        Rigidbody handleRigidbody = Handle.GetComponent<Rigidbody>();
-        if(Handle.isLocked && handleRigidbody.velocity.y > 10)
-        {
-            rb.AddForce(Vector3.up * handleRigidbody.velocity.y / 10, ForceMode.Impulse);
-        }
-    }
-
-    void Dodge()
-    {
-        Rigidbody handleRigidbody = Handle.GetComponent<Rigidbody>();
-        Vector3 localVelocity = transform.InverseTransformDirection(handleRigidbody.velocity);
-        //the handle needs to rotate with the player
-
-        if(Handle.isLocked && localVelocity.x > 10)
-        {
-            rb.AddForce(localVelocity.x * 2, ForceMode.Impulse);
-        }
-        else if(Handle.isLocked && localVelocity.x < -10)
-        {
-            rb.AddForce(localVelocity.x * 2, ForceMode.Impulse);
-        }
-        else if(Handle.isLocked && localVelocity.z > 10)
-        {
-            rb.AddForce(localVelocity.z * 2, ForceMode.Impulse);
-        }
-        else if(Handle.isLocked && localVelocity.z < -10)
-        {
-            rb.AddForce(localVelocity.z * 2, ForceMode.Impulse);
-        }
-
-
+        rb.velocity  = Vector3.up * 2f;
+        yield return new WaitForSeconds(1f);
+        jumpCooldown = false;
     }
 }
