@@ -7,23 +7,27 @@ public class PlayerHandle : MonoBehaviour
     [SerializeField] Transform player;
     [SerializeField] float movementSpeed = 5f;
     [SerializeField] Vector3 offset;
-    [SerializeField] ParticleSystem connectingEffect;
     public bool isHeld = false;
 
     public void SetHeld(bool held)
     {
         isHeld = held;
     }
+    
     // Start is called before the first frame update
     void Start()
     {
-        
+        gameObject.SetActive(false);
+    }
+
+    public void SetActiveState(bool state)
+    {
+        gameObject.SetActive(state);
     }
 
     public void isReleased()
     {
         isHeld = false;
-        connectingEffect.Play();
     }
 
     // Update is called once per frame
@@ -39,7 +43,8 @@ public class PlayerHandle : MonoBehaviour
 
         if(Vector3.Distance(transform.position, player.position + offset) < 0.1f)
         {
-            connectingEffect.Stop();
+            transform.position = player.position + offset;
+            transform.rotation = player.rotation;
         }
     }
 }

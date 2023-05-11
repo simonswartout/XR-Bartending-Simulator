@@ -4,15 +4,32 @@ using UnityEngine;
 
 public class PlayerSpawnTile : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] TilePiece tilePiece;
+    [SerializeField] SetPlayerActiveState setPlayerActiveState;
+    [SerializeField] PlayerHandle playerHandle;
+    [SerializeField] ParticleSystem spawnParticleSystem;
+    [SerializeField] Transform spawnPoint;
 
-    // Update is called once per frame
     void Update()
     {
-        
+        if(setPlayerActiveState.isActive)
+        {
+            return;
+        }
+
+        if(tilePiece.isSnapped)
+        {
+            StartCoroutine(SpawnPlayer());
+        }
+    }
+
+    IEnumerator SpawnPlayer()
+    {
+        yield return new WaitForSeconds(1f);
+        setPlayerActiveState.SetActiveState(true);
+        playerHandle.SetActiveState(true);
+        setPlayerActiveState.GetComponent<Transform>().position = spawnPoint.position;
+        playerHandle.GetComponent<Transform>().position = spawnPoint.position;
+        spawnParticleSystem.Play();
     }
 }

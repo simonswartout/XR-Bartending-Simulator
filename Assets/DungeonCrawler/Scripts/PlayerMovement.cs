@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class PlayerMovement : MonoBehaviour
 {
 
@@ -29,25 +30,27 @@ public class PlayerMovement : MonoBehaviour
 
         if(dir.y > .5f)
         {
-            dir.x = 0;
-            dir.z = 0;
-            jumpCooldown = true;
             StartCoroutine(Jump());
         }
         else
         {
             dir.y = 0;
-
         }
 
-        rb.velocity = dir * movementSpeed;
+        Vector3 targetVelocity = dir * movementSpeed;
+        targetVelocity.y = rb.velocity.y;
+        rb.velocity = Vector3.Lerp(rb.velocity, targetVelocity, 100f * Time.deltaTime);
+        
+        if(dir.y != 0) return;
         rb.rotation = Quaternion.LookRotation(dir);
+
     }
 
     private IEnumerator Jump()
     {
-        rb.velocity  = Vector3.up * 2f;
-        yield return new WaitForSeconds(1f);
+        jumpCooldown = true;
+        rb.AddForce(Vector3.up * 2f, ForceMode.Impulse);
+        yield return new WaitForSeconds(0.5f);
         jumpCooldown = false;
     }
 }
